@@ -35,9 +35,4 @@ export class ItemsController {
         return `surfaceCoatingLayer: ${surfaceCoatingLayer} - ZAZCoating: ${ZAZCoating}`;
     }
 
-
-    // @Get('search/:searchTerm')
-    // searchItems(@Param('searchTerm') searchTerm: string) {
-    //     return this.itemsService.searchItems(searchTerm)
-    // }
 }

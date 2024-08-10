@@ -1,17 +1,16 @@
-// /* eslint-disable prettier/prettier */
-// // elasticsearch.module.ts
-// import { Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
+import { MyElasticsearchController } from './elasticsearch.controller';
+import { ElasticsearchModule } from '@nestjs/elasticsearch';
+import { MyElasticsearchService } from './elasticsearch.service';
 
-// @Module({
-//   imports: [
-//     ElasticsearchModule.register({
-//       node: 'https://your-elasticsearch-cloud-url',
-//       auth: {
-//         username: 'your-username',
-//         password: 'your-password',
-//       },
-//     }),
-//   ],
-//   exports: [ElasticsearchModule],
-// })
-// export class ElasticsearchProviderModule {}
+@Module({
+  imports: [
+    ElasticsearchModule.register({
+      node: 'http://localhost:9200',
+    }),
+  ],
+  controllers:[MyElasticsearchController],
+  providers: [MyElasticsearchService],
+  exports: [ElasticsearchModule],
+})
+export class ElasticSearchModule {}

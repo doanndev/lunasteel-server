@@ -30,10 +30,9 @@ export class RedisCacheService implements OnModuleInit, OnModuleDestroy {
 
     private async connectRedis(): Promise<any> {
         const client = createClient({
-            password: "yAN45UpPXtoZm35PpKPmjRmm3sFo1UWd",
             socket: {
-                host: 'redis-15484.c1.asia-northeast1-1.gce.redns.redis-cloud.com',
-                port: 15484,    
+                host: '127.0.0.1',
+                port: 6379,    
             },
         });
 

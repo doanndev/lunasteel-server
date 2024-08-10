@@ -7,12 +7,13 @@ import { WarehouseModule } from './modules/warehouse/warehouse.module';
 import { ItemsModule } from './modules/items/item.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { RedisCacheModule } from './modules/redisCache/redis-cache.module';
+import { ElasticSearchModule } from './modules/elasticsearch/elasticsearch.module';
 // import { CustomElasticsearchModule } from './modules/elasticsearch/elasticsearch.module';
 
 @Module({
   imports: [
     MongooseModule.forRoot('mongodb://127.0.0.1:27017/lunasteel'),
-    // CustomElasticsearchModule,
+    ElasticSearchModule,
     RedisCacheModule,
     ItemsModule,  
     PricingModule,

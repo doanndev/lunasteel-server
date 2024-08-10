@@ -5,7 +5,6 @@ import { Item } from "../../models/items.model";
 import { Model } from "mongoose";
 import { filterDataClass } from "src/Global/GlobalClass";
 import { RedisCacheService } from "../redisCache/redis-cache.service";
-// import { surfaceCoatingEnum } from "./item.enum";
 
 
 @Injectable()
@@ -43,13 +42,4 @@ export class ItemsService {
             return surfaceCoatingLayer
         }
     }
-    // async searchItems(searchTerm: string) {
-    //     const { hits } = await this.elasticsearchService.search({
-    //         index: 'items',
-    //         query: {
-    //             match: { name: searchTerm },
-    //         },
-    //     });
-    //     return hits.hits;
-    // }
 };
