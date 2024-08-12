@@ -34,4 +34,5 @@ export class ItemsController {
         return `surfaceCoatingLayer: ${surfaceCoatingLayer} - ZAZCoating: ${ZAZCoating}`;
     }
 
+
 }

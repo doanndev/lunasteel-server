@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 export class groupClass {
-    GroupLevel1: number;
-    GroupLevel2: number;
-    GroupLevel3: number;
+    groupLevel1: number;
+    groupLevel2: number;
+    groupLevel3: number;
 }
 
 export class thicknessClass {
@@ -28,6 +28,7 @@ export class dismensionalClass {
 export class descriptionClass {
     shortDescription: string;
     overviewLongDescriptions: string;
+    tradeName: string;
 }
 
 export class revisionClass {
@@ -49,7 +50,7 @@ export class costClass {
 export class otherClass {
     activeforDataIntegration: number;
     acceptrequirement: number;
-    Passrequirement: number;
+    passrequirement: number;
     lotTrack: number;
     reservable: number;
 }

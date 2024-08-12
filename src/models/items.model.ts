@@ -51,9 +51,6 @@ export class Item extends Document {
     @Prop({type: Object})
     dismensional: dismensionalClass;
 
-    @Prop()
-    alloyCode: string;
-
     @Prop({type: Object})
     description: descriptionClass;
 
