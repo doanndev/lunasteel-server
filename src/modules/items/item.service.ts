@@ -3,7 +3,6 @@ import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Item } from "../../models/items.model";
 import { Model } from "mongoose";
-import { filterDataClass } from "src/Global/GlobalClass";
 import { RedisCacheService } from "../redisCache/redis-cache.service";
 
 
@@ -22,7 +21,7 @@ export class ItemsService {
     async filterData({
         surfaceCoatingLayer: surfaceCoatingLayer,
         ZAZCoating: ZAZCoating
-    }: filterDataClass) {
+    }: {surfaceCoatingLayer: string, ZAZCoating: string}) {
         const query = {
             surfaceCoatingLayer: surfaceCoatingLayer,
             ZAZCoating: ZAZCoating

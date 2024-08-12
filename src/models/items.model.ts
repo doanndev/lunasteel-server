@@ -1,33 +1,22 @@
 /* eslint-disable prettier/prettier */
+import { integer } from "@elastic/elasticsearch/lib/api/types";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
+import { codeClass, colorClass, costClass, descriptionClass, dismensionalClass, groupClass, otherClass, revisionClass, thicknessClass } from "src/interface/model.interface";
 
 @Schema()
 export class Item extends Document {
-
-    @Prop({ _id: false })
-    _id: number;
-
-    @Prop()
-    group: string;
+    @Prop({type: Object})
+    group: groupClass;
 
     @Prop()
     grade: string;
 
     @Prop()
-    standard: string;
+    standart: string;
 
-    @Prop()
-    baseSteelThickness: number;
-
-    @Prop()
-    postGalvanizationThickness: number;
-
-    @Prop({ required: false })
-    postPaintThickness?: number;
-
-    @Prop({ required: false })
-    pipeWallThickness?: number;
+    @Prop({type: Object})
+    thickness: thicknessClass;
 
     @Prop()
     width: number;
@@ -41,14 +30,8 @@ export class Item extends Document {
     @Prop()
     paintCoatingWeight: number;
 
-    @Prop({ index: true})
-    color: string;
-
-    @Prop()
-    primaryPaintColorCode: string;
-
-    @Prop()
-    backPaintColorCode: string;
+    @Prop({ type: Object})
+    color: colorClass;
 
     @Prop({ required: false })
     length?: number;
@@ -63,25 +46,26 @@ export class Item extends Document {
     glossiness?: number;
 
     @Prop({ required: false })
-    conversionRatio?: number
+    conversionRatio?: number;
 
-    @Prop()
-    lowerDimensionalTolerance: number;
-
-    @Prop()
-    upperDimensionalTolerance: number;
+    @Prop({type: Object})
+    dismensional: dismensionalClass;
 
     @Prop()
     alloyCode: string;
 
-    @Prop()
-    revision: number;
+    @Prop({type: Object})
+    description: descriptionClass;
 
-    @Prop()
-    revisionTrack: number;
+    @Prop({type: Object})
+    revision: revisionClass;
+
 
     @Prop()
     stocked: boolean;
+
+    @Prop()
+    showInDropDownList: integer;
 
     @Prop()
     UM: string;
@@ -92,42 +76,37 @@ export class Item extends Document {
     @Prop()
     source: string;
 
-    @Prop()
-    productCode: string;
+    @Prop({type: Object})
+    code: codeClass;
+
+    @Prop({type:Object})
+    cost: costClass;
 
     @Prop()
-    ABCCode: string;
+    other: otherClass;
 
     @Prop()
-    costType: string;
-
-    @Prop()
-    costMethod: string;
-
-    @Prop()
-    activeforDataIntegration: boolean;
-
-    @Prop()
-    acceptRequirement: boolean;
-
-    @Prop()
-    passrequirement: boolean;
-
-    @Prop()
-    lotTrack: boolean;
-
-    @Prop()
-    reservable: boolean
-
-    @Prop()
-    descriptions: string;
-
+    tradeName: string;
 
     @Prop()
     createAt: Date;
 
     @Prop()
     updatedAt: Date;
+    // @Prop()
+    // activeforDataIntegration: boolean;
+
+    // @Prop()
+    // acceptRequirement: boolean;
+
+    // @Prop()
+    // passrequirement: boolean;
+
+    // @Prop()
+    // lotTrack: boolean;
+
+    // @Prop()
+    // reservable: boolean
 
 }
 

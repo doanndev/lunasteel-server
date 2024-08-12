@@ -20,16 +20,17 @@ export class WarehouseService {
             totalCoil: totalCoil
         }: { itemId: number, totalCoil: number }
     ) {
-        const data = await this.WarehouseModel.find({ itemId: itemId }).limit(Number(totalCoil))
+        // const data = await this.WarehouseModel.find({ itemId: itemId }).limit(Number(totalCoil))
 
-        const totalWeigh = data.reduce((sum, item) => sum + item.netWeightKg, 0)
-        const responseData = {
-            data: data,
-            itemId: itemId,
-            totalCoil: totalCoil,
-            totalWeigh: totalWeigh
-        }
-        return responseData;
+        // const totalWeigh = data.reduce((sum, item) => sum + item.netWeightKg, 0)
+        // const responseData = {
+        //     data: data,
+        //     itemId: itemId,
+        //     totalCoil: totalCoil,
+        //     totalWeigh: totalWeigh
+        // }
+        // return responseData;
+        return;
     }
     async postTotalWeigh(
         {

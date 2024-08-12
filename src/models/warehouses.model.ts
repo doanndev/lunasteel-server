@@ -1,48 +1,40 @@
 /* eslint-disable prettier/prettier */
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
+import { lengthClass, receiptInforClass, supplierClass, weightClass } from "src/interface/model.interface";
 
 @Schema()
 export class Warehouse extends Document {
 
     @Prop()
-    coilID: number;
-
-    @Prop()
-    receiptDate: number;
-
-    @Prop()
     itemId: number;
 
     @Prop()
-    supplierCoilID: number;
+    coilID: number;
+
+    @Prop({type: Object})
+    receiptInfor: receiptInforClass;
+
+    @Prop()
+    supplier: supplierClass;
 
     @Prop()
     plating: string;
 
-    @Prop({index: true})
-    netWeightKg: number;
-
-    @Prop()
-    grossWeightKg: number;
+    @Prop({type: Object})
+    weight: weightClass;
 
     @Prop()
     amount: number;
 
     @Prop()
-    actualDensity: number;
+    density: number;
 
     @Prop()
     prime: string;
 
-    @Prop()
-    lengthA: number;
-
-    @Prop()
-    lengthC: number;
-
-    @Prop()
-    fixedDensity: number;
+    @Prop({type:Object})
+    length:lengthClass;
 
     @Prop()
     storageLocation: string;
@@ -51,7 +43,7 @@ export class Warehouse extends Document {
     note: string;
 
     @Prop()
-    thicknessByWidth: number;
+    inputInterpretation: string;
 
     @Prop()
     ageOfInventory: string;
@@ -61,9 +53,6 @@ export class Warehouse extends Document {
 
     @Prop()
     supplierName: string;
-
-    @Prop()
-    inputInterpretation: string
 
     @Prop()
     order: string;
@@ -88,10 +77,6 @@ export class Warehouse extends Document {
 
     @Prop()
     updatedAt: Date;
-
 }
 
 export const WarehouseModel = SchemaFactory.createForClass(Warehouse);
-
-
-WarehouseModel.index({ itemId: 1 });

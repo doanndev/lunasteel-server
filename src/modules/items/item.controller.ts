@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Get, Param, Post, Query } from "@nestjs/common";
 import { ItemsService } from "./item.service";
-import { filterDataClass } from "src/Global/GlobalClass";
 
 @Controller('items')
 export class ItemsController {
@@ -20,7 +19,7 @@ export class ItemsController {
     filterData(@Body() {
         surfaceCoatingLayer: surfaceCoatingLayer,
         ZAZCoating: ZAZCoating
-    }: filterDataClass) {
+    }: {surfaceCoatingLayer: string, ZAZCoating: string}) {
         return this.itemsService.filterData({
             surfaceCoatingLayer: surfaceCoatingLayer,
             ZAZCoating: ZAZCoating
